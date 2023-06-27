@@ -33,12 +33,6 @@ function Edit({
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-  const DEFAULT_BUTTON = [{
-    name: 'core/button',
-    attributes: {
-      text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Text')
-    }
-  }];
   const {
     blockBackground,
     backgroundColor,
@@ -123,8 +117,7 @@ function Edit({
     className: "button-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     ...blockProps,
-    allowedBlocks: ALLOWED_BLOCKS,
-    template: DEFAULT_BUTTON
+    allowedBlocks: ALLOWED_BLOCKS
   })))));
 }
 

@@ -9,15 +9,6 @@ const ALLOWED_BLOCKS = ['core/button'];
 export default function Edit({ classname, attributes, setAttributes }) {
   const blockProps = useBlockProps();
 
-  const DEFAULT_BUTTON = [
-    {
-      name: 'core/button',
-      attributes: {
-        text: __('Button Text'),
-      },
-    },
-  ];
-
   const { blockBackground, backgroundColor, cover } = attributes;
 
   function onSelectBlockBackground(newBlockBackground) {
@@ -117,11 +108,7 @@ export default function Edit({ classname, attributes, setAttributes }) {
             />
           </div>
           <div className="button-container">
-            <InnerBlocks
-                     {...blockProps}
-                     allowedBlocks={ALLOWED_BLOCKS}
-                     template={DEFAULT_BUTTON}
-                   />
+            <InnerBlocks {...blockProps} allowedBlocks={ALLOWED_BLOCKS} />
           </div>
         </div>
       </div>
