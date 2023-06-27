@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/callout-block",
+  "version": "0.1.0",
+  "title": "Callout Block",
+  "category": "spira-care-blocks",
+  "icon": "admin-site",
+  "description": "Callout Block Block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "callout-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

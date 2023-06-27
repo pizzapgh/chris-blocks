@@ -1,0 +1,114 @@
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/callout-block/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+.wp-block-create-block-callout-block {
+  background-color: #012739;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.wp-block-create-block-callout-block .callout-cta {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  position: relative;
+  text-align: center;
+}
+.wp-block-create-block-callout-block .callout-cta:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.1;
+  z-index: 0;
+}
+.wp-block-create-block-callout-block .callout-cta h2 {
+  z-index: 1;
+  font-size: 45px;
+  margin-bottom: 20px;
+  font-family: "Gilroy-Bold";
+  margin-top: 0;
+  color: #fff;
+}
+@media (min-width: 850px) and (max-width: 1000px) {
+  .wp-block-create-block-callout-block .callout-cta h2 {
+    font-size: 40px;
+  }
+}
+@media (min-width: 540px) and (max-width: 850px) {
+  .wp-block-create-block-callout-block .callout-cta h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
+}
+@media all and (max-width: 540px) {
+  .wp-block-create-block-callout-block .callout-cta h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+}
+.wp-block-create-block-callout-block .callout-cta p {
+  z-index: 1;
+  margin-bottom: 30px;
+  font-size: 17px;
+  line-height: 23px;
+  font-family: "Roboto", sans-serif;
+}
+.wp-block-create-block-callout-block .callout-cta .wp-block-button {
+  margin-left: 20px;
+}
+.wp-block-create-block-callout-block .callout-cta .wp-block-button__link {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Gilroy-Bold";
+  background-color: transparent;
+  border: 3px solid white;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 18px;
+  transition: all ease 200ms;
+  font-weight: bold;
+}
+.wp-block-create-block-callout-block .callout-cta .wp-block-button__link:hover, .wp-block-create-block-callout-block .callout-cta .wp-block-button__link:focus {
+  cursor: pointer;
+  background-color: white;
+  color: #1f677a;
+}
+@media all and (max-width: 720px) {
+  .wp-block-create-block-callout-block .callout-cta {
+    padding: 150px 10px 40px;
+  }
+}
+@media (min-width: 720px) and (max-width: 850px) {
+  .wp-block-create-block-callout-block .callout-cta {
+    padding: 70px 20px 70px;
+  }
+}
+@media all and (min-width: 850px) {
+  .wp-block-create-block-callout-block .callout-cta {
+    padding: 130px 20px 130px;
+  }
+}
+
+.wp-block-create-block-callout-block.alignfull.undefined.toggle-on-horizontal-cta .callout-cta {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/*# sourceMappingURL=index.css.map*/
