@@ -8,8 +8,21 @@ import save from './save';
 
 const validAlignments = ['full'];
 
+wp.blocks.registerBlockStyle('create-block/callout-block', [
+    {
+        name: 'horizontal',
+        label: 'Horizontal',
+    }
+]);
+
 registerBlockType('create-block/callout-block', {
     title: __('Callout Block', 'callout-block'),
+      example: {
+         attributes: {
+            mainHeading: "Hello World",
+            mainContent: "Lorem Ipsum"
+       }
+    },
     supports: {
         html: false,
         align: true,
@@ -43,3 +56,4 @@ registerBlockType('create-block/callout-block', {
     edit: Edit,
     save,
 });
+

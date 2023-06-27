@@ -7,6 +7,41 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.wp-block-create-block-callout-block.is-style-horizontal .callout-cta {
+  flex-direction: column;
+  justify-content: center;
+}
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block.is-style-horizontal .callout-cta {
+    flex-direction: row;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+}
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block.is-style-horizontal .callout-cta .button-container {
+    margin-left: 20px;
+  }
+}
+.wp-block-create-block-callout-block.is-style-horizontal .body-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block.is-style-horizontal .body-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+}
+.wp-block-create-block-callout-block.is-style-horizontal .body-container h2 {
+  flex: 1;
+}
+.wp-block-create-block-callout-block.is-style-horizontal .body-container p {
+  flex: 1.5;
+}
 .wp-block-create-block-callout-block .callout-cta {
   box-sizing: border-box;
   width: 100%;
@@ -18,24 +53,24 @@
   position: relative;
   text-align: center;
 }
-.wp-block-create-block-callout-block .callout-cta:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: black;
-  opacity: 0.1;
-  z-index: 0;
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block .callout-cta {
+    max-width: 980px;
+    margin: auto;
+  }
 }
 .wp-block-create-block-callout-block .callout-cta h2 {
   z-index: 1;
   font-size: 45px;
-  margin-bottom: 20px;
   font-family: "Gilroy-Bold";
   margin-top: 0;
   color: #fff;
+  margin-bottom: 20px;
+}
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block .callout-cta h2 {
+    margin-bottom: 0px;
+  }
 }
 @media (min-width: 850px) and (max-width: 1000px) {
   .wp-block-create-block-callout-block .callout-cta h2 {
@@ -56,13 +91,38 @@
 }
 .wp-block-create-block-callout-block .callout-cta p {
   z-index: 1;
-  margin-bottom: 30px;
   font-size: 17px;
   line-height: 23px;
   font-family: "Roboto", sans-serif;
+  margin-bottom: 30px;
 }
-.wp-block-create-block-callout-block .callout-cta .wp-block-button {
-  margin-left: 20px;
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block .callout-cta p {
+    margin-bottom: 0;
+  }
+}
+.wp-block-create-block-callout-block .callout-cta .wp-block-button + .wp-block-button .wp-block-button__link {
+  margin-top: 15px;
+}
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block .callout-cta .wp-block-button + .wp-block-button .wp-block-button__link {
+    margin-top: 0;
+  }
+}
+.wp-block-create-block-callout-block .callout-cta .button-container {
+  display: flex;
+  flex-direction: column;
+}
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block .callout-cta .button-container {
+    flex-direction: row;
+    margin-top: 0;
+  }
+}
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block .callout-cta .button-container .wp-block-button + .wp-block-button {
+    margin-left: 20px;
+  }
 }
 .wp-block-create-block-callout-block .callout-cta .wp-block-button__link {
   position: relative;
@@ -72,14 +132,13 @@
   font-family: "Gilroy-Bold";
   background-color: transparent;
   border: 3px solid white;
-  margin-bottom: 15px;
   margin-left: auto;
   margin-right: auto;
   color: white;
   padding: 15px 30px;
   border-radius: 8px;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 14px;
   transition: all ease 200ms;
   font-weight: bold;
 }
@@ -90,7 +149,7 @@
 }
 @media all and (max-width: 720px) {
   .wp-block-create-block-callout-block .callout-cta {
-    padding: 150px 10px 40px;
+    padding: 40px 10px 40px;
   }
 }
 @media (min-width: 720px) and (max-width: 850px) {
@@ -102,13 +161,6 @@
   .wp-block-create-block-callout-block .callout-cta {
     padding: 130px 20px 130px;
   }
-}
-
-.wp-block-create-block-callout-block.alignfull.undefined.toggle-on-horizontal-cta .callout-cta {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
