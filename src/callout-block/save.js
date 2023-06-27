@@ -16,7 +16,7 @@ export default function save({ className, attributes }) {
   return (
     <div className={`wp-block-create-block-callout-block ${className}`} {...blockProps}>
       <div
-        className="callout-cta test"
+        className="callout-cta"
         style={{
           backgroundImage: attributes.blockBackground !== '' ? `url("${attributes.blockBackground}")` : 'none',
           backgroundSize: 'cover',
