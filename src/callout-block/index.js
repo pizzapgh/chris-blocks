@@ -56,4 +56,3 @@ registerBlockType('create-block/callout-block', {
     edit: Edit,
     save,
 });
-

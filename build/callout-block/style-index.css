@@ -23,6 +23,11 @@
     margin-left: 20px;
   }
 }
+@media all and (min-width: 540px) {
+  .wp-block-create-block-callout-block.is-style-horizontal .callout-cta .button-container p {
+    margin-bottom: 0;
+  }
+}
 .wp-block-create-block-callout-block.is-style-horizontal .body-container {
   display: flex;
   flex-direction: column;
@@ -94,7 +99,7 @@
   font-size: 17px;
   line-height: 23px;
   font-family: "Roboto", sans-serif;
-  margin-bottom: 30px;
+  margin-top: 0;
 }
 @media all and (min-width: 540px) {
   .wp-block-create-block-callout-block .callout-cta p {

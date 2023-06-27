@@ -18,6 +18,11 @@
                 @media all and (min-width: 540px) {
                 margin-left: 20px;
                 }
+                p{
+                    @media all and (min-width: 540px) {
+                    margin-bottom: 0;
+                    }
+                }
             }
         }
         .body-container{
@@ -98,9 +103,9 @@
             font-size: 17px;
             line-height: 23px;
             font-family: "Roboto", sans-serif;
-            margin-bottom: 30px;
+              margin-top: 0;
             @media all and (min-width: 540px) {
-            margin-bottom: 0;
+              margin-bottom: 0;
             }
         }
 

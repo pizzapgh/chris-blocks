@@ -13,40 +13,59 @@ export default function Edit({ classname, attributes, setAttributes }) {
 
   function onSelectBlockBackground(newBlockBackground) {
     setAttributes({
-      blockBackground: newBlockBackground.sizes.full.url,
+      blockBackground: newBlockBackground.sizes?.full?.url || '',
+    });
+  }
+
+  function onRemoveBlockBackground() {
+    setAttributes({
+      blockBackground: '',
     });
   }
 
   return (
-    [
+    <>
       <InspectorControls>
-        <PanelBody title={'Select Background Image'}>
+        <PanelBody title={__('Select Background Image')}>
           <p>
-            <strong>Select a Background Image:</strong>
+            <strong>{__('Select a Background Image:')}</strong>
           </p>
           <MediaUpload
             onSelect={onSelectBlockBackground}
             type="image"
             value={attributes.blockBackground.url}
             render={({ open }) => (
-              <Button className="editor-media-placeholder__button is-button is-default is-large" icon="upload" onClick={open}>
-                Select Image
+              <Button
+                className="editor-media-placeholder__button is-button is-default is-large"
+                icon="upload"
+                onClick={open}
+              >
+                {__('Select Image')}
               </Button>
             )}
           />
+          {blockBackground && (
+            <Button
+              className="editor-media-remove__button is-button is-default"
+              onClick={onRemoveBlockBackground}
+            >
+              {__('Remove Image')}
+            </Button>
+          )}
         </PanelBody>
-      </InspectorControls>,
+      </InspectorControls>
 
-      <div className={`wp-block-create-block-callout-block ${classname}`} {...blockProps}
-      style={{
-        backgroundImage: attributes.blockBackground !== '' ? `url("${attributes.blockBackground}")` : 'none',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
+      <div
+        className={`wp-block-create-block-callout-block ${classname}`}
+        {...blockProps}
+        style={{
+          backgroundImage: blockBackground ? `url("${blockBackground}")` : 'none',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
       >
-        <div
-          className="callout-cta">
+        <div className="callout-cta">
           <div className="body-container">
             <RichText
               tagName="h2"
@@ -68,6 +87,6 @@ export default function Edit({ classname, attributes, setAttributes }) {
           </div>
         </div>
       </div>
-    ]
+    </>
   );
 }
