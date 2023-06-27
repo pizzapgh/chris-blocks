@@ -1,15 +1,15 @@
 import { __ } from '@wordpress/i18n';
 import { RichText, InspectorControls, MediaUpload, useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-import { PanelBody, Button } from '@wordpress/components';
+import { PanelBody, Button, ColorPicker } from '@wordpress/components';
 
 import './editor.scss';
 
 const ALLOWED_BLOCKS = ['core/button'];
 
-export default function Edit({ classname, attributes, setAttributes }) {
+export default function Edit({ className, attributes, setAttributes }) {
   const blockProps = useBlockProps();
 
-  const { blockBackground } = attributes;
+  const { blockBackground, backgroundColor } = attributes;
 
   function onSelectBlockBackground(newBlockBackground) {
     setAttributes({
@@ -20,6 +20,12 @@ export default function Edit({ classname, attributes, setAttributes }) {
   function onRemoveBlockBackground() {
     setAttributes({
       blockBackground: '',
+    });
+  }
+
+  function onBackgroundColorChange(newColor) {
+    setAttributes({
+      backgroundColor: newColor,
     });
   }
 
@@ -53,16 +59,20 @@ export default function Edit({ classname, attributes, setAttributes }) {
             </Button>
           )}
         </PanelBody>
+        <PanelBody title={__('Background Color')}>
+          <p>
+            <strong>{__('Select a Background Color:')}</strong>
+          </p>
+          <ColorPicker color={backgroundColor} onChange={onBackgroundColorChange} />
+        </PanelBody>
       </InspectorControls>
 
       <div
-        className={`wp-block-create-block-callout-block ${classname}`}
+        className={`wp-block-create-block-callout-block ${className}`}
         {...blockProps}
         style={{
-          backgroundImage: blockBackground ? `url("${blockBackground}")` : 'none',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          backgroundImage: `url(${blockBackground})`, // Set the background image dynamically
+          backgroundColor: attributes.backgroundColor || '',  // Set the background color dynamically
         }}
       >
         <div className="callout-cta">

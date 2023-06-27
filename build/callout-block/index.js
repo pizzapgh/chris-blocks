@@ -28,13 +28,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const ALLOWED_BLOCKS = ['core/button'];
 function Edit({
-  classname,
+  className,
   attributes,
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   const {
-    blockBackground
+    blockBackground,
+    backgroundColor
   } = attributes;
   function onSelectBlockBackground(newBlockBackground) {
     setAttributes({
@@ -44,6 +45,11 @@ function Edit({
   function onRemoveBlockBackground() {
     setAttributes({
       blockBackground: ''
+    });
+  }
+  function onBackgroundColorChange(newColor) {
+    setAttributes({
+      backgroundColor: newColor
     });
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -62,14 +68,18 @@ function Edit({
   }), blockBackground && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
     className: "editor-media-remove__button is-button is-default",
     onClick: onRemoveBlockBackground
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Image')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `wp-block-create-block-callout-block ${classname}`,
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Image'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select a Background Color:'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPicker, {
+    color: backgroundColor,
+    onChange: onBackgroundColorChange
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `wp-block-create-block-callout-block ${className}`,
     ...blockProps,
     style: {
-      backgroundImage: blockBackground ? `url("${blockBackground}")` : 'none',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
+      backgroundImage: `url(${blockBackground})`,
+      // Set the background image dynamically
+      backgroundColor: attributes.backgroundColor || '' // Set the background color dynamically
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "callout-cta"
@@ -206,19 +216,26 @@ function save({
   attributes
 }) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    'data-align': attributes.align // Add the data-align attribute with the align value
+    'data-align': attributes.align,
+    // Add the data-align attribute with the align value
+    style: {
+      backgroundColor: attributes.backgroundColor || '' // Set the background color dynamically
+    }
   });
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `wp-block-create-block-callout-block ${className}`,
-    ...blockProps,
+    ...blockProps
+  }, attributes.blockBackground && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: attributes.blockBackground,
+    alt: "",
     style: {
-      backgroundImage: attributes.blockBackground !== '' ? `url("${attributes.blockBackground}")` : 'none',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
+      objectFit: 'cover',
+      objectPosition: 'center',
+      width: '100%',
+      height: '100%'
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "callout-cta"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "body-container"

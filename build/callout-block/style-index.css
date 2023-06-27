@@ -6,6 +6,19 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+}
+.wp-block-create-block-callout-block img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  opacity: 0.4;
 }
 .wp-block-create-block-callout-block.is-style-horizontal .callout-cta {
   flex-direction: column;
@@ -24,7 +37,7 @@
   }
 }
 @media all and (min-width: 540px) {
-  .wp-block-create-block-callout-block.is-style-horizontal .callout-cta .button-container p {
+  .wp-block-create-block-callout-block.is-style-horizontal .callout-cta p {
     margin-bottom: 0;
   }
 }
@@ -70,12 +83,7 @@
   font-family: "Gilroy-Bold";
   margin-top: 0;
   color: #fff;
-  margin-bottom: 20px;
-}
-@media all and (min-width: 540px) {
-  .wp-block-create-block-callout-block .callout-cta h2 {
-    margin-bottom: 0px;
-  }
+  margin-bottom: 10px;
 }
 @media (min-width: 850px) and (max-width: 1000px) {
   .wp-block-create-block-callout-block .callout-cta h2 {
@@ -100,11 +108,6 @@
   line-height: 23px;
   font-family: "Roboto", sans-serif;
   margin-top: 0;
-}
-@media all and (min-width: 540px) {
-  .wp-block-create-block-callout-block .callout-cta p {
-    margin-bottom: 0;
-  }
 }
 .wp-block-create-block-callout-block .callout-cta .wp-block-button + .wp-block-button .wp-block-button__link {
   margin-top: 15px;
@@ -166,6 +169,17 @@
   .wp-block-create-block-callout-block .callout-cta {
     padding: 130px 20px 130px;
   }
+}
+
+.is-style-overlay:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: black;
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

@@ -4,6 +4,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
+    img{
+        position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: center;
+         opacity: 0.4;
+    }
 
     &.is-style-horizontal{
         .callout-cta{
@@ -18,10 +29,10 @@
                 @media all and (min-width: 540px) {
                 margin-left: 20px;
                 }
-                p{
-                    @media all and (min-width: 540px) {
-                    margin-bottom: 0;
-                    }
+            }
+            p{
+                @media all and (min-width: 540px) {
+                margin-bottom: 0;
                 }
             }
         }
@@ -78,9 +89,9 @@
             font-family: "Gilroy-Bold";
             margin-top: 0;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             @media all and (min-width: 540px) {
-                margin-bottom: 0px;
+                // margin-bottom: 0px;
             }
 
             @media (min-width: 850px) and (max-width: 1000px) {
@@ -105,7 +116,7 @@
             font-family: "Roboto", sans-serif;
               margin-top: 0;
             @media all and (min-width: 540px) {
-              margin-bottom: 0;
+              // margin-bottom: 0;
             }
         }
 
@@ -184,4 +195,16 @@
 }
 
 
+.is-style-overlay{
+    &:before{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: black;
+        opacity: 0.5;
+    }
+}
 
