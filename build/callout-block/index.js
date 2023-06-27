@@ -27,6 +27,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const ALLOWED_BLOCKS = ['core/button'];
+const DEFAULT_BUTTON = [['core/button', {
+  text: 'Button Text'
+}]];
 function Edit({
   classname,
   attributes,
@@ -51,6 +54,11 @@ function Edit({
   function onBackgroundColorChange(newColor) {
     setAttributes({
       backgroundColor: newColor
+    });
+  }
+  if (!attributes.buttonContent || attributes.buttonContent.length === 0) {
+    setAttributes({
+      buttonContent: DEFAULT_BUTTON
     });
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -117,7 +125,8 @@ function Edit({
     className: "button-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     ...blockProps,
-    allowedBlocks: ALLOWED_BLOCKS
+    allowedBlocks: ALLOWED_BLOCKS,
+    template: attributes.buttonContent
   })))));
 }
 

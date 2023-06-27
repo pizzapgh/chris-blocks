@@ -6,6 +6,10 @@ import './editor.scss';
 
 const ALLOWED_BLOCKS = ['core/button'];
 
+const DEFAULT_BUTTON = [
+  ['core/button', { text: 'Button Text' }],
+];
+
 export default function Edit({ classname, attributes, setAttributes }) {
   const blockProps = useBlockProps();
 
@@ -27,6 +31,10 @@ export default function Edit({ classname, attributes, setAttributes }) {
     setAttributes({
       backgroundColor: newColor,
     });
+  }
+
+  if (!attributes.buttonContent || attributes.buttonContent.length === 0) {
+    setAttributes({ buttonContent: DEFAULT_BUTTON });
   }
 
   return (
@@ -72,7 +80,7 @@ export default function Edit({ classname, attributes, setAttributes }) {
         {...blockProps}
         style={{
           backgroundImage: 'none', // Remove the background image style
-          backgroundColor: attributes.backgroundColor || '',  // Set the background color dynamically
+          backgroundColor: attributes.backgroundColor || '', // Set the background color dynamically
         }}
       >
         {blockBackground && (
@@ -108,7 +116,7 @@ export default function Edit({ classname, attributes, setAttributes }) {
             />
           </div>
           <div className="button-container">
-            <InnerBlocks {...blockProps} allowedBlocks={ALLOWED_BLOCKS} />
+            <InnerBlocks {...blockProps} allowedBlocks={ALLOWED_BLOCKS} template={attributes.buttonContent} />
           </div>
         </div>
       </div>
