@@ -10,18 +10,24 @@ const validAlignments = ['full'];
 
 wp.blocks.registerBlockStyle('create-block/callout-block', [
     {
+        name: 'default',
+        label: 'Vertical',
+        isDefault: true,
+    },
+    {
         name: 'horizontal',
         label: 'Horizontal',
-    }
+    },
 ]);
+
 
 registerBlockType('create-block/callout-block', {
     title: __('Callout Block', 'callout-block'),
       example: {
          attributes: {
             mainHeading: "Hello World",
-            mainContent: "Lorem Ipsum"
-       }
+            mainContent: "Lorem Ipsum",
+       },
     },
     supports: {
         html: false,
@@ -45,6 +51,10 @@ registerBlockType('create-block/callout-block', {
         align: {
             type: 'string',
             default: 'full',
+        },
+        cover: {
+            type: 'string',
+            default: '', // keep it empty so it doesn't get saved in the post content
         },
     },
     getEditWrapperProps( attributes ) {

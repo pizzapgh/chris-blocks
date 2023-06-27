@@ -6,10 +6,19 @@ import './editor.scss';
 
 const ALLOWED_BLOCKS = ['core/button'];
 
-export default function Edit({ className, attributes, setAttributes }) {
+export default function Edit({ classname, attributes, setAttributes }) {
   const blockProps = useBlockProps();
 
-  const { blockBackground, backgroundColor } = attributes;
+  const DEFAULT_BUTTON = [
+    {
+      name: 'core/button',
+      attributes: {
+        text: __('Button Text'),
+      },
+    },
+  ];
+
+  const { blockBackground, backgroundColor, cover } = attributes;
 
   function onSelectBlockBackground(newBlockBackground) {
     setAttributes({
@@ -68,13 +77,28 @@ export default function Edit({ className, attributes, setAttributes }) {
       </InspectorControls>
 
       <div
-        className={`wp-block-create-block-callout-block ${className}`}
+        className={`wp-block-create-block-callout-block ${classname}`}
         {...blockProps}
         style={{
-          backgroundImage: `url(${blockBackground})`, // Set the background image dynamically
+          backgroundImage: 'none', // Remove the background image style
           backgroundColor: attributes.backgroundColor || '',  // Set the background color dynamically
         }}
       >
+        {blockBackground && (
+          <div className="image-container">
+            <img
+              src={blockBackground}
+              alt=""
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center',
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          </div>
+        )}
+
         <div className="callout-cta">
           <div className="body-container">
             <RichText
@@ -88,12 +112,16 @@ export default function Edit({ className, attributes, setAttributes }) {
               tagName="p"
               value={attributes.mainContent}
               onChange={(mainContent) => setAttributes({ mainContent })}
-              placeholder={__('Main Content')}
+              placeholder={__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')}
               className="main-content"
             />
           </div>
           <div className="button-container">
-            <InnerBlocks {...blockProps} allowedBlocks={ALLOWED_BLOCKS} />
+            <InnerBlocks
+                     {...blockProps}
+                     allowedBlocks={ALLOWED_BLOCKS}
+                     template={DEFAULT_BUTTON}
+                   />
           </div>
         </div>
       </div>

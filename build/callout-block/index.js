@@ -28,14 +28,21 @@ __webpack_require__.r(__webpack_exports__);
 
 const ALLOWED_BLOCKS = ['core/button'];
 function Edit({
-  className,
+  classname,
   attributes,
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+  const DEFAULT_BUTTON = [{
+    name: 'core/button',
+    attributes: {
+      text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Text')
+    }
+  }];
   const {
     blockBackground,
-    backgroundColor
+    backgroundColor,
+    cover
   } = attributes;
   function onSelectBlockBackground(newBlockBackground) {
     setAttributes({
@@ -74,14 +81,25 @@ function Edit({
     color: backgroundColor,
     onChange: onBackgroundColorChange
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `wp-block-create-block-callout-block ${className}`,
+    className: `wp-block-create-block-callout-block ${classname}`,
     ...blockProps,
     style: {
-      backgroundImage: `url(${blockBackground})`,
-      // Set the background image dynamically
+      backgroundImage: 'none',
+      // Remove the background image style
       backgroundColor: attributes.backgroundColor || '' // Set the background color dynamically
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, blockBackground && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "image-container"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: blockBackground,
+    alt: "",
+    style: {
+      objectFit: 'cover',
+      objectPosition: 'center',
+      width: '100%',
+      height: '100%'
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "callout-cta"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "body-container"
@@ -99,13 +117,14 @@ function Edit({
     onChange: mainContent => setAttributes({
       mainContent
     }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Main Content'),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
     className: "main-content"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "button-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     ...blockProps,
-    allowedBlocks: ALLOWED_BLOCKS
+    allowedBlocks: ALLOWED_BLOCKS,
+    template: DEFAULT_BUTTON
   })))));
 }
 
@@ -138,6 +157,10 @@ __webpack_require__.r(__webpack_exports__);
 
 const validAlignments = ['full'];
 wp.blocks.registerBlockStyle('create-block/callout-block', [{
+  name: 'default',
+  label: 'Vertical',
+  isDefault: true
+}, {
   name: 'horizontal',
   label: 'Horizontal'
 }]);
@@ -171,8 +194,13 @@ wp.blocks.registerBlockStyle('create-block/callout-block', [{
     align: {
       type: 'string',
       default: 'full'
+    },
+    cover: {
+      type: 'string',
+      default: '' // keep it empty so it doesn't get saved in the post content
     }
   },
+
   getEditWrapperProps(attributes) {
     const {
       align
