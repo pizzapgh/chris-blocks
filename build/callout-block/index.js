@@ -150,6 +150,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.scss */ "./src/callout-block/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./edit */ "./src/callout-block/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./save */ "./src/callout-block/save.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -166,8 +168,22 @@ wp.blocks.registerBlockStyle('create-block/callout-block', [{
   name: 'horizontal',
   label: 'Horizontal'
 }]);
+
+const el = _wordpress_element__WEBPACK_IMPORTED_MODULE_7__.createElement;
+const iconEl = el('svg', {
+  xmlns: "http://www.w3.org/2000/svg",
+  xmlSpace: "preserve",
+  width: 800,
+  height: 800,
+  viewBox: "0 0 333.848 333.848"
+}, el('path', {
+  d: "M228.873 0c-28.048 0-54.413 10.923-74.246 30.755-37.339 37.339-40.615 96.029-9.845 137.125l21.519-21.519v-.001l21.213-21.213 27.105-27.105 3.647-3.647c5.857-5.858 15.355-5.858 21.213-.001 5.857 5.857 5.858 15.356 0 21.214l-30.752 30.753-21.213 21.213-.007.007-.002.002-21.511 21.511-21.213-21.213-21.975 21.974-10.606-10.607c-.009-.009-.019-.016-.026-.024l-28.259-28.259c-5.858-5.859-15.357-5.858-21.214 0-5.857 5.857-5.857 15.354 0 21.213l17.678 17.678-67.174 67.174c-8.5 8.5-13.182 19.8-13.182 31.82.001 12.021 4.683 23.32 13.182 31.818 8.499 8.5 19.8 13.182 31.818 13.181 12.021.001 23.32-4.681 31.822-13.18l67.172-67.175 17.678 17.677a14.963 14.963 0 0 0 10.607 4.395c3.839 0 7.678-1.465 10.605-4.395 5.857-5.857 5.859-15.353 0-21.213l-28.27-28.269-.013-.015-10.606-10.607 21.965-21.963c18.053 13.56 39.906 20.897 62.888 20.897 28.046.001 54.415-10.922 74.245-30.754 40.941-40.94 40.94-107.553 0-148.493C283.288 10.922 256.919 0 228.873 0z",
+  fill: "#000"
+}));
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('create-block/callout-block', {
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Callout Block', 'callout-block'),
+  category: 'chris-blocks',
+  icon: iconEl,
   example: {
     attributes: {
       mainHeading: "Hello World",

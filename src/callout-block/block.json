@@ -4,8 +4,8 @@
 	"name": "create-block/callout-block",
 	"version": "0.1.0",
 	"title": "Callout Block",
-	"category": "spira-care-blocks",
-	"icon": "admin-site",
+	"category": "",
+	"icon": "",
 	"description": "Callout Block Block",
 	"supports": {
 		"html": false
